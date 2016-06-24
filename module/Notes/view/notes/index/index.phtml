@@ -1,0 +1,37 @@
+<!-- TO DO List -->
+<div class="box box-primary">
+    <div class="box-header">
+        <i class="ion ion-clipboard"></i>
+
+        <h3 class="box-title">To Do List</h3>
+
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+        <ul class="todo-list">
+            <?php foreach ($this->notes as $note) : ?>
+            <li>
+                <!-- drag handle -->
+                      <span class="handle">
+                        <i class="fa fa-ellipsis-v"></i>
+                        <i class="fa fa-ellipsis-v"></i>
+                      </span>
+                <!-- todo text -->
+                <span class="text"><?php echo $this->escapeHtml($note->getTitle()); $foo = new DateTime(); $foo->format('dd/MM/YYYY')?></span>
+                <!-- Emphasis label -->
+                <small class="label label-danger"><i class="fa fa-clock-o"></i> <?php echo $this->escapeHtml($note->getDueDate()->format('d M y')); ?></small>
+                <!-- General tools such as edit or delete-->
+                <div class="tools">
+                    <i class="fa fa-edit"></i>
+                    <i class="fa fa-trash-o"></i>
+                </div>
+            </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer clearfix no-border">
+        <a href="<?php echo $this->url('notes/add'); ?>" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</a>
+    </div>
+</div>
+<!-- /.box -->
