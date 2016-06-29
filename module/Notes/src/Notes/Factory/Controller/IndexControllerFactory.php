@@ -5,6 +5,7 @@ namespace Notes\Factory\Controller;
 use Notes\Controller\IndexController;
 use Notes\Service\NoteService;
 use Zend\ServiceManager\FactoryInterface;
+use Notes\Form\NotesForm;
 
 class IndexControllerFactory implements FactoryInterface
 {
@@ -12,7 +13,8 @@ class IndexControllerFactory implements FactoryInterface
     {
         $sm = $serviceLocator->getServiceLocator();
         $noteService = $sm->get(NoteService::class);
+        $notesForm = $sm->get(NotesForm::class);
 
-        return new IndexController($noteService);
+        return new IndexController($noteService, $notesForm);
     }
 }

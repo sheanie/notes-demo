@@ -10,6 +10,10 @@ class Note
     protected $dueDate;
     protected $status;
 
+    public function toArray()
+    {
+        return get_object_vars($this);
+    }
     /**
      * @return mixed
      */
@@ -71,7 +75,7 @@ class Note
      */
     public function setDueDate($dueDate)
     {
-        $this->dueDate = $dueDate;
+        $this->dueDate = $dueDate->format('Y-m-d');
     }
 
     /**

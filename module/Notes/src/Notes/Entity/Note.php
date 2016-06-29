@@ -5,7 +5,7 @@ namespace Notes\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Notes\Repository\NoteRepository")
  * @ORM\Table(name="note")
  */
 class Note

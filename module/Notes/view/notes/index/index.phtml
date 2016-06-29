@@ -17,13 +17,13 @@
                         <i class="fa fa-ellipsis-v"></i>
                       </span>
                 <!-- todo text -->
-                <span class="text"><?php echo $this->escapeHtml($note->getTitle()); $foo = new DateTime(); $foo->format('dd/MM/YYYY')?></span>
+                <span class="text"><?php echo $this->escapeHtml($note->getTitle()); ?></span>
                 <!-- Emphasis label -->
-                <small class="label label-danger"><i class="fa fa-clock-o"></i> <?php echo $this->escapeHtml($note->getDueDate()->format('d M y')); ?></small>
+                <small class="label label-danger"><i class="fa fa-clock-o"></i> <?php echo $this->escapeHtml($note->getDueDate()); ?></small>
                 <!-- General tools such as edit or delete-->
                 <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
+                    <a href="<?php echo $this->url('notes/edit', ['id' => $note->getId()]); ?>"><i class="fa fa-edit"></i></a>
+                    <a href="<?php echo $this->url('notes/delete', ['id' => $note->getId()]); ?>"><i class="fa fa-trash-o"></i></a>
                 </div>
             </li>
             <?php endforeach; ?>

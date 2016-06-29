@@ -1,0 +1,9 @@
+<h1>Are you sure you want to delete this note?</h1>
+<form action="/notes/delete/<?php echo $this->escapeHtmlAttr($id); ?>" method="post">
+    <div class="form-group">
+    <label for="confirm">Remove Note</label><input type="checkbox" name="confirm" />
+    </div>
+    <div class="form-group">
+    <input type="submit" value="Delete" />
+    </div>
+</form>

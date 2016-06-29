@@ -1,4 +1,5 @@
 <?php
+
 namespace Notes;
 
 class Module

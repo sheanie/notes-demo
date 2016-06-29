@@ -6,6 +6,8 @@ use Notes\Controller\IndexController;
 use Notes\Factory\Controller\IndexControllerFactory;
 use Notes\Factory\Service\NoteServiceFactory;
 use Notes\Service\NoteService;
+use Notes\Form\NotesForm;
+use Notes\Factory\Form\NotesFormFactory;
 
 return [
     'router' => [
@@ -28,6 +30,32 @@ return [
                             'defaults' => [
                                 'controller' => IndexController::class,
                                 'action' => 'add',
+                            ],
+                        ],
+                    ],
+                    'edit' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => '/edit/:id',
+                            'defaults' => [
+                                'controller' => IndexController::class,
+                                'action' => 'edit'
+                            ],
+                            'constraints' => [
+                                'id' => '[0-9]+',
+                            ],
+                        ],
+                    ],
+                    'delete' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => '/delete/:id',
+                            'defaults' => [
+                                'controller' => IndexController::class,
+                                'action' => 'delete'
+                            ],
+                            'constraints' => [
+                                'id' => '[0-9]+',
                             ],
                         ],
                     ],
@@ -57,6 +85,7 @@ return [
     'service_manager' => [
         'factories' => [
             NoteService::class => NoteServiceFactory::class,
+            NotesForm::class => NotesFormFactory::class,
         ],
     ],
     'view_manager' => [
